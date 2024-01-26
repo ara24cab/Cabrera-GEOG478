@@ -1,9 +1,6 @@
 # Cabrera-GEOG478
-# global username = arantza
-# global user email = aracab24@tamu.edu
-# global credential username = aracab24
 
-Arantza Cabrera
+# Arantza Cabrera
 Table:-
 | Homeworks  | Labs  | Project |
 | :-------------: |:-------------:| :-----:|
