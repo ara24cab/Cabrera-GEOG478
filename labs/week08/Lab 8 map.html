@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- TAMU MAP TITLE -->
+    <title>Arantza TAMU Map of Courses Taken</title>
+    <!-- prepare html and add/set up leaflet -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.6/"></script>
+    <style>
+        body {
+          font-family: sans-serif;
+          padding: 0;
+          margin: 0;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
+    
+        #viewDiv {
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0;
+          bottom: 0;
+        }
+      </style>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+    <!-- js now-->
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "dojo/domReady!"
+        ], function(
+            Map, MapView, FeatureLayer
+        ) {
+        
+            var map = new Map({
+                basemap: "streets"
+            });
+        
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-96.339469, 30.617492],
+                zoom: 16
+            });
+        
+            /********************
+            * Add feature layer
+            ********************/
+            // Buildings of my TAMU classes
+            var featureLayer = new FeatureLayer({
+                url: "https://services1.arcgis.com/qr14biwnHA6Vis6l/arcgis/rest/services/MyTAMUBldgs/FeatureServer",
+            });
+        
+            // Set up popup template
+            var popupTemplate = {
+                title: "{Abbrev}",
+                actions: [{
+                    id: "find"
+                }],
+                content: [{
+                    type: "fields",
+                    fieldInfos: [{
+                        fieldName: "Abbrev"
+                    }, {
+                        fieldName: "YearClass"
+                    }]
+                }]
+            };
+        
+            featureLayer.popupTemplate = popupTemplate;
+        
+            map.add(featureLayer);
+        });
+        </script>
+</body>
+
+</html>
