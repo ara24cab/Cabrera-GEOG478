@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arantza Cabrera's first web map</title>
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        /* Define map container height */
+        #map { height: 800px; }
+    </style>
+</head>
+<body>
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        var map = L.map('map').fitWorld();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        map.locate({setView: true, maxZoom: 16});
+
+        var kyleField = L.circle([30.6102, -96.3398], {
+            color: 'blue',
+            fillColor: 'blue',
+            fillOpacity: 0.2,
+            radius: 200 // in meters
+        }).addTo(map);
+        kyleField.bindPopup("<b>Kyle Field</b><br>College Station, Texas").openPopup();
+
+        var omIcon = L.icon({
+            iconUrl: 'O&M.jfif',
+            iconSize: [38, 38],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76]
+        });
+        var abIcon = L.icon({
+            iconUrl: 'Academic Building.jfif',
+            iconSize: [38, 38],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76]
+        });
+
+        L.marker([30.6174, -96.3367], {icon: omIcon}).addTo(map).bindPopup("O&M Building");
+        L.marker([30.61536, -96.3407], {icon: abIcon}).addTo(map).bindPopup("Academic Building");
+
+        function onMapClick(e) {
+            L.popup()
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>
