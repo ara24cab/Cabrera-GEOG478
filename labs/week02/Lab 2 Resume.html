@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Darkened Background Image</title>
+    <style>
+      .image-container {
+        position: relative;
+        /* Needed for absolute positioning of the overlay */
+        width: 100%;
+        /* Full width */
+        height: 1000px;
+        /* Set height or derive it from content */
+      }
+
+      /* Style for the container with the background image */
+      .background {
+        background-image: url('https://www.utica.edu/sites/default/files/styles/width_2520/public/2019-05/waterfall_geology_geoscience_generic.jpg?h=a27ff34c&itok=u_E7qR3m');
+        background-size: cover;
+        /* Ensures the image covers the entire container */
+        background-position: center;
+        /* Centers the image in the container */
+        background-repeat: no-repeat;
+        /* Prevents image repetition */
+        width: 100%;
+        /* Full width */
+        height: 980px;
+        /* Full viewport height */
+        animation: fadeIn 5s ease-in-out;
+        /* Apply the fade-in animation */
+      }
+
+      .dark-overlay {
+        position: absolute;
+        /* Positions the overlay on top of the background */
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Covers the entire background */
+        height: 1000px;
+        /* Full height */
+        background: rgba(0, 0, 0, 0.7);
+        /* Black with 60% opacity */
+      }
+
+      /* Keyframes for the fade-in effect */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Example content on top of the background */
+      .content {
+        position: relative;
+        /* Ensures content is on top of the overlay */
+        color: white;
+        /* White text for contrast against the dark background */
+        text-align: left;
+        /* Center-aligns the content */
+        padding: 20px;
+        /* Add padding to content */
+      }
+    </style>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 12px
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+      }
+
+      h3 {
+        color: white;
+      }
+
+      ul.contact {
+        list-style: none text-align center
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Div with the background image and fade-in animation -->
+    <div class="background">
+      <div class="dark-overlay"></div>
+      <div class="content">
+        <br>
+        <h1>Arantza Cabrera</h1>
+        </ul>
+        <div>
+          <h2>Contact Info</h2>
+          <ul>
+            <li>(832) 406-8319</li>
+            <li>aracab24@tamu.edu</li>
+            <li>
+              <a href="www.linkedin.com/in/ara24cab">LinkedIn</a>
+            </li>
+            <!-- My image for the resume -->
+          </ul>
+        </div>
+        <div>
+          <h2>Education</h2>
+          <h3>Texas A&M University, College Station, Texas</h3>
+          <p>
+            <span style="font-style:italic">Bachelor of Science in Environmental Geosciences, May 2024</span>
+          </p>
+          <p>Cumulative GPR: 2.8</p>
+        </div>
+        <div>
+          <h2>Relevant Coursework</h2>
+          <h3>GEOS 470 - Data Analysis in the Geosciences</h3>
+          <p>
+            <span style="font-style:italic">Spring 2023</span>
+          </p>
+          <ul>
+            <li>Topics and methods encountered while performing research in the geosciences</li>
+            <li>Conceptualization of a scientific problem, data collection and processing, appropriate analysis techniques and data archiving and management</li>
+            <li>Multi-disciplinary approach with an emphasis on real-world applications from environmental, atmospheric, and oceanographic sciences</li>
+          </ul>
+          <h3>GEOL 420 - Environmental Hydrogeology</h3>
+          <p>
+            <span style="font-style:italic">Fall 2023</span>
+          </p>
+          <ul>
+            <li>Geologic concepts of the nature of geologic environments and the dynamics of geologic processes needed to characterize and quantify human interactions with specific geologic systems including aquifers, watershed, coastlines and wetlands</li>
+            <li>Specific techniques, including geophysical and geochemical techniques, field mapping, geographical information systems and remote sensing used to monitor human-geosphere interactions</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Research</h2>
+          <h3>Aggie Research Scholars</h3>
+          <p>
+            <span style="font-style:italic">Aug 2022 - May 2023</span>
+          </p>
+          <ul>
+            <li>Collaborated in a literature review on global effects of climate change and mitigation strategies on US and global agriculture</li>
+            <li>Built an aeroponic system and conducted analysis of root growth behavior influenced by pathogen Candidatus Liberibacter solanacearum (Lso) introduced via adult psyllids in the tomato plant variety “Moneymaker”</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <dl>
+            <dd>Technical: ArcGIS Pro, ENVI, Git/Github, Matlab, R, Office 365, MicroStation</dd>
+            <dd>Languages: English, Spanish</dd>
+          </dl>
+        </div>
+        <div>
+          <h2>Professional Organizations & Activities</h2>
+          <dl>
+            <dd>
+              <span style="font-weight:bold">TAMU SEDS - TAMU Students for Exploration and Dev. of Space</span>, Member, August 2022 - Present
+            </dd>
+            <dd>
+              <span style="font-weight:bold">TAMU Student Geosciences Council</span>, Member, January 2022 - May 2023
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
